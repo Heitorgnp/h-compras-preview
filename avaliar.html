@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f9">
+  <title>Avaliar a prévia · H</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .review-wrap{max-width:620px;margin:auto;padding:28px 20px 80px}
+    .review-wrap h1{font-size:clamp(2rem,8vw,3rem);line-height:1.08}
+    .review-card{padding:20px;margin:18px 0;border:1px solid #e9e9ee}
+    .review-card h2{margin:0 0 12px}
+    .review-links{display:grid;gap:10px}
+    .review-links a{padding:14px 16px;border:1px solid #e9e9ee;border-radius:14px;color:#17171b;background:#fff;font-weight:650}
+    .review-links a:hover{background:#f8f7fb;text-decoration:none}
+    .review-wrap textarea{margin:10px 0 16px;min-height:155px}
+    .review-wrap .button{width:100%}
+    #review-status{min-height:24px;font-size:.85rem;color:#553a75}
+  </style>
+</head>
+<body>
+  <header class="site-header"><div class="shell header-inner"><a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"></span>H<span class="brand-period">.</span></a></div></header>
+  <main class="review-wrap">
+    <p class="eyebrow"><span class="eyebrow-dot"></span> Prévia para avaliação</p>
+    <h1>Veja a solução pelo celular e conte o que melhoraria.</h1>
+    <p class="muted">Esta versão mostra dados fictícios. Os botões de cadastro e de consulta não se conectam a lojas nesta página de demonstração.</p>
+    <section class="card review-card" aria-labelledby="tour-title">
+      <h2 id="tour-title">Faça um passeio rápido</h2>
+      <div class="review-links">
+        <a href="index.html">1. Página inicial e lista de compras ↗</a>
+        <a href="sinal-produto.html">2. Comparativo, ofertas e histórico ↗</a>
+        <a href="sinal-avisos.html">3. Avisos de preço ↗</a>
+        <a href="sinal-conta.html">4. Área da conta ↗</a>
+      </div>
+    </section>
+    <section class="card review-card" aria-labelledby="feedback-title">
+      <h2 id="feedback-title">Sua opinião</h2>
+      <p>O que está claro? O que está confuso? Qual ação deveria funcionar primeiro?</p>
+      <label for="feedback">Anote aqui</label>
+      <textarea id="feedback" placeholder="Ex.: Entendi o menor preço, mas queria escolher meu CEP antes de comparar."></textarea>
+      <button class="button" id="copy-feedback" type="button">Copiar comentário para enviar no chat</button>
+      <p id="review-status" role="status"></p>
+      <p class="hint">O texto fica apenas neste navegador até você copiá-lo. Esta página não envia sua resposta automaticamente.</p>
+    </section>
+  </main>
+  <script>
+    const field = document.getElementById("feedback");
+    const status = document.getElementById("review-status");
+    const storageKey = "h-preview-feedback-v1";
+    try { field.value = localStorage.getItem(storageKey) || ""; } catch (_) {}
+    field.addEventListener("input", () => {
+      try { localStorage.setItem(storageKey, field.value); } catch (_) {}
+    });
+    document.getElementById("copy-feedback").addEventListener("click", async () => {
+      if (!field.value.trim()) { status.textContent = "Escreva um comentário primeiro."; return; }
+      try {
+        await navigator.clipboard.writeText("Feedback sobre a prévia do H:\n" + field.value.trim());
+        status.textContent = "Copiado. Agora é só colar na nossa conversa.";
+      } catch (_) {
+        field.focus(); field.select();
+        status.textContent = "Selecione e copie o texto para colar na nossa conversa.";
+      }
+    });
+  </script>
+</body>
+</html>
