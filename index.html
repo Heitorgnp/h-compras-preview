@@ -57,8 +57,8 @@ main.shell{background:var(--surface);min-height:calc(100vh - 64px);padding:0 32p
 textarea{width:100%;resize:vertical;min-height:100px;border:1px solid var(--line);border-radius:14px;padding:13px 15px;font:inherit;background:#fff;color:var(--ink)}
 textarea:focus-visible{outline:2px solid #8b5cff;outline-offset:2px}
 .intent-list{list-style:none;margin:16px 0 0;padding:0;border:1px solid var(--line);border-radius:18px;overflow:hidden}
-.intent-list li{display:flex;align-items:center;gap:12px;min-height:60px;padding:8px 15px;background:#fff}
-.intent-list li+li{border-top:1px solid var(--line)}.intent-list li>span:nth-child(2){flex:1;overflow-wrap:anywhere}
+.intent-list li{min-height:60px;padding:12px 15px;background:#fff}
+.intent-list li+li{border-top:1px solid var(--line)}.intent-row{display:flex;align-items:center;gap:12px}.intent-row strong{flex:1;overflow-wrap:anywhere}.intent-track-form{display:flex;flex-wrap:wrap;align-items:end;gap:8px;margin:10px 0 0 32px}.intent-track-form label{flex:1 1 190px;font-size:.8rem}.intent-track-form input{width:100%;margin-top:5px}.intent-track-form .button{min-height:43px}
 .intent-icon{font-size:1.25rem;color:#a078c8}.intent-list .text-button{font-size:.76rem}
 .product-heading{padding:24px 0 15px}.product-heading h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.05}
 .product-photo-large{background:#f6f6f8;max-width:380px;max-height:330px;margin-inline:auto}.best-offer{border:1px solid #e8dff3;background:linear-gradient(125deg,#fbf8fd,#f6f8fe);padding:23px}
@@ -170,7 +170,7 @@ textarea:focus-visible{outline:2px solid #8b5cff;outline-offset:2px}
       <span class="eyebrow">2 lojas</span>
       <h3>AirPods Pro 3 (opção de fone de ouvido)</h3>
       <span class="price">R$ 990,00</span>
-      <span class="product-meta">loja-brasil.example · 22 out, 00:02</span>
+      <span class="product-meta">loja-brasil.example · 22 out, 00:23</span>
       <span class="view-link">Ver comparativo <span aria-hidden="true">↗</span></span>
     </a>
 
@@ -318,7 +318,7 @@ textarea:focus-visible{outline:2px solid #8b5cff;outline-offset:2px}
   <p class="section-note">Preços apresentados sem frete. “Recente” significa consulta nos últimos sete dias; a loja pode mudar o valor depois.</p>
 </section>
 <section class="list-section" aria-labelledby="intent-title" id="my-list">
-  <div class="section-heading"><div><p class="eyebrow">Mesmo sem link</p><h2 id="intent-title">Lista de desejos</h2></div><span class="count">0</span></div>
+  <div class="section-heading"><div><p class="eyebrow">Mesmo sem link</p><h2 id="intent-title">Lista de desejos</h2></div><span class="count">2</span></div>
   <p class="muted">Anote ideias de compra por nome. Elas ficam na sua conta e ainda não entram no comparativo de preços.</p>
   <form action="/shopping-intents" method="post" class="card intent-form">
 
@@ -326,7 +326,21 @@ textarea:focus-visible{outline:2px solid #8b5cff;outline-offset:2px}
     <textarea id="intent-items" name="items" rows="3" maxlength="20000" placeholder="Tênis de corrida&#10;Cafeteira" required></textarea>
     <button class="button secondary" type="submit">Guardar na lista</button>
   </form>
+  <ul class="intent-list"><li class="intent-item">
+    <div class="intent-row"><span class="intent-icon" aria-hidden="true">○</span><strong>Roupas para festa de fim de ano</strong><form action="/shopping-intents/1/remove" method="post"><button class="text-button danger" type="submit" aria-label="Remover Roupas para festa de fim de ano">Remover</button></form></div>
+    <form class="intent-track-form" action="/shopping-intents/1/track" method="post">
 
+      <label>Link para começar a acompanhar Roupas para festa de fim de ano<input name="url" type="url" placeholder="https://loja.com/produto" inputmode="url" autocomplete="url" required></label>
+      <button class="button secondary" type="submit">Conectar produto</button>
+    </form>
+  </li><li class="intent-item">
+    <div class="intent-row"><span class="intent-icon" aria-hidden="true">○</span><strong>Alimento não perecível (1 kg)</strong><form action="/shopping-intents/2/remove" method="post"><button class="text-button danger" type="submit" aria-label="Remover Alimento não perecível (1 kg)">Remover</button></form></div>
+    <form class="intent-track-form" action="/shopping-intents/2/track" method="post">
+
+      <label>Link para começar a acompanhar Alimento não perecível (1 kg)<input name="url" type="url" placeholder="https://loja.com/produto" inputmode="url" autocomplete="url" required></label>
+      <button class="button secondary" type="submit">Conectar produto</button>
+    </form>
+  </li></ul>
 </section>
 
   </main>

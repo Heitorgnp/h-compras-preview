@@ -57,8 +57,8 @@ main.shell{background:var(--surface);min-height:calc(100vh - 64px);padding:0 32p
 textarea{width:100%;resize:vertical;min-height:100px;border:1px solid var(--line);border-radius:14px;padding:13px 15px;font:inherit;background:#fff;color:var(--ink)}
 textarea:focus-visible{outline:2px solid #8b5cff;outline-offset:2px}
 .intent-list{list-style:none;margin:16px 0 0;padding:0;border:1px solid var(--line);border-radius:18px;overflow:hidden}
-.intent-list li{display:flex;align-items:center;gap:12px;min-height:60px;padding:8px 15px;background:#fff}
-.intent-list li+li{border-top:1px solid var(--line)}.intent-list li>span:nth-child(2){flex:1;overflow-wrap:anywhere}
+.intent-list li{min-height:60px;padding:12px 15px;background:#fff}
+.intent-list li+li{border-top:1px solid var(--line)}.intent-row{display:flex;align-items:center;gap:12px}.intent-row strong{flex:1;overflow-wrap:anywhere}.intent-track-form{display:flex;flex-wrap:wrap;align-items:end;gap:8px;margin:10px 0 0 32px}.intent-track-form label{flex:1 1 190px;font-size:.8rem}.intent-track-form input{width:100%;margin-top:5px}.intent-track-form .button{min-height:43px}
 .intent-icon{font-size:1.25rem;color:#a078c8}.intent-list .text-button{font-size:.76rem}
 .product-heading{padding:24px 0 15px}.product-heading h1{font-size:clamp(2rem,5vw,3.2rem);line-height:1.05}
 .product-photo-large{background:#f6f6f8;max-width:380px;max-height:330px;margin-inline:auto}.best-offer{border:1px solid #e8dff3;background:linear-gradient(125deg,#fbf8fd,#f6f8fe);padding:23px}
@@ -111,7 +111,7 @@ textarea:focus-visible{outline:2px solid #8b5cff;outline-offset:2px}
 <section class="card best-offer" aria-label="Menor preço consultado nos últimos sete dias">
   <p class="eyebrow">Menor preço em reais consultado nos últimos sete dias</p>
   <strong class="price">R$ 990,00</strong>
-  <p>loja-brasil.example · consultado em <time datetime="2026-10-22T03:02:17+00:00" title="Horário de Brasília">22 out, 00:02</time></p>
+  <p>loja-brasil.example · consultado em <time datetime="2026-10-22T03:23:24+00:00" title="Horário de Brasília">22 out, 00:23</time></p>
   <a class="button" href="#" target="_blank" rel="noopener noreferrer">Conferir na loja ↗</a>
   <small>Valores sem frete e cupons. Confirme o valor final na loja antes de comprar.</small>
 </section>
@@ -139,11 +139,11 @@ textarea:focus-visible{outline:2px solid #8b5cff;outline-offset:2px}
   <div class="section-heading"><div><p class="eyebrow">Veja de onde vem o preço</p><h2 id="offers-title">Ofertas cadastradas</h2></div><span class="count">2</span></div>
   <div class="offer-list">
     <article class="card offer-card offer-best">
-      <div><h3>loja-brasil.example</h3><p class="muted small">Consultado em <time datetime="2026-10-22T03:02:17+00:00" title="Horário de Brasília">22 out, 00:02</time></p>
+      <div><h3>loja-brasil.example</h3><p class="muted small">Consultado em <time datetime="2026-10-22T03:23:24+00:00" title="Horário de Brasília">22 out, 00:23</time></p>
         <span class="status-label status-best">Menor preço recente</span></div>
       <div class="offer-action"><strong class="price">R$ 990,00</strong><a href="#" target="_blank" rel="noopener noreferrer">Abrir loja ↗</a></div>
     </article><article class="card offer-card">
-      <div><h3>loja-dois.example</h3><p class="muted small">Consultado em <time datetime="2026-10-22T03:02:17+00:00" title="Horário de Brasília">22 out, 00:02</time></p>
+      <div><h3>loja-dois.example</h3><p class="muted small">Consultado em <time datetime="2026-10-22T03:23:24+00:00" title="Horário de Brasília">22 out, 00:23</time></p>
         </div>
       <div class="offer-action"><strong class="price">R$ 1.100,00</strong><a href="#" target="_blank" rel="noopener noreferrer">Abrir loja ↗</a></div>
     </article>
@@ -165,13 +165,13 @@ textarea:focus-visible{outline:2px solid #8b5cff;outline-offset:2px}
     <button class="button secondary" type="submit">Salvar avisos</button>
   </form>
   <h3>Mudanças observadas</h3><ol class="history-list">
-    <li><div><strong>loja-brasil.example · caiu</strong><span class="muted small"><time datetime="2026-10-22T03:02:17+00:00" title="Horário de Brasília">22 out, 00:02</time></span></div><span>R$ 1.200,00 → <strong>R$ 990,00</strong></span></li>
+    <li><div><strong>loja-brasil.example · caiu</strong><span class="muted small"><time datetime="2026-10-22T03:23:24+00:00" title="Horário de Brasília">22 out, 00:23</time></span></div><span>R$ 1.200,00 → <strong>R$ 990,00</strong></span></li>
   </ol>
 </section>
 <section class="list-section" aria-labelledby="history-title">
   <h2 id="history-title">Histórico de preços</h2>
   <ol class="history-list card">
-    <li><div><strong>loja-dois.example</strong><span class="muted small"><time datetime="2026-10-22T03:02:17+00:00" title="Horário de Brasília">22 out, 00:02</time></span></div><strong>R$ 1.100,00</strong></li><li><div><strong>loja-brasil.example</strong><span class="muted small"><time datetime="2026-10-22T03:02:17+00:00" title="Horário de Brasília">22 out, 00:02</time></span></div><strong>R$ 990,00</strong></li><li><div><strong>loja-dois.example</strong><span class="muted small"><time datetime="2026-10-22T03:02:17+00:00" title="Horário de Brasília">22 out, 00:02</time></span></div><strong>R$ 1.100,00</strong></li><li><div><strong>loja-brasil.example</strong><span class="muted small"><time datetime="2026-10-22T03:02:17+00:00" title="Horário de Brasília">22 out, 00:02</time></span></div><strong>R$ 1.200,00</strong></li>
+    <li><div><strong>loja-dois.example</strong><span class="muted small"><time datetime="2026-10-22T03:23:24+00:00" title="Horário de Brasília">22 out, 00:23</time></span></div><strong>R$ 1.100,00</strong></li><li><div><strong>loja-brasil.example</strong><span class="muted small"><time datetime="2026-10-22T03:23:24+00:00" title="Horário de Brasília">22 out, 00:23</time></span></div><strong>R$ 990,00</strong></li><li><div><strong>loja-dois.example</strong><span class="muted small"><time datetime="2026-10-22T03:23:24+00:00" title="Horário de Brasília">22 out, 00:23</time></span></div><strong>R$ 1.100,00</strong></li><li><div><strong>loja-brasil.example</strong><span class="muted small"><time datetime="2026-10-22T03:23:24+00:00" title="Horário de Brasília">22 out, 00:23</time></span></div><strong>R$ 1.200,00</strong></li>
   </ol>
 </section>
 <form action="/products/1/remove" method="post" class="remove-form"><button class="text-button danger" type="submit">Remover da minha lista</button></form>
