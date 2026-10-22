@@ -1,5 +1,7 @@
 # H · prévia pública para celular
 
+[Abrir a prévia no celular](https://heitorgnp.github.io/h-compras-preview/) · [Registrar uma avaliação](https://heitorgnp.github.io/h-compras-preview/avaliar.html)
+
 Esta cópia contém somente HTML, CSS e uma ilustração fictícia. O código do
 aplicativo e seus dados ficam no repositório privado do projeto.
 
